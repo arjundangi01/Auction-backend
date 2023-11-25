@@ -58,6 +58,7 @@ cron.schedule(
     }
     // let allProducts = await ProductModel.updateMany({ endDate: today }, { $set: {} });
     // console.log(allProducts);
+    //--
   },
   {
     timezone: "Asia/Kolkata",
