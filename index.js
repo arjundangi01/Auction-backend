@@ -14,11 +14,7 @@ const BidModel = require("./models/bid.model");
 const app = express();
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "https://subtle-cupcake-2e83a9.netlify.app",
-      
-    ],
+    origin: ["https://subtle-cupcake-2e83a9.netlify.app"],
   })
 );
 app.use(express.json());
