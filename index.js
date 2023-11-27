@@ -15,8 +15,9 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "https://subtle-cupcake-2e83a9.netlify.app",
       "http://localhost:3000",
+      "https://subtle-cupcake-2e83a9.netlify.app",
+      
     ],
   })
 );
@@ -68,13 +69,16 @@ const server = http.createServer(app);
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: ["http://localhost:3000","https://subtle-cupcake-2e83a9.netlify.app"],
+    origin: [
+      "http://localhost:3000",
+      "https://subtle-cupcake-2e83a9.netlify.app",
+    ],
   },
 });
 
 io.on("connection", (socket) => {
   // console.log(socket)
-  console.log('A user connected');
+  console.log("A user connected");
   socket.on("newBid", (data) => {
     console.log(data);
     io.emit("newBidAdded", data);
