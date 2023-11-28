@@ -14,7 +14,7 @@ const BidModel = require("./models/bid.model");
 const app = express();
 app.use(
   cors({
-    origin: ["https://subtle-cupcake-2e83a9.netlify.app"],
+    origin: ["https://subtle-cupcake-2e83a9.netlify.app",'http://localhost:3000'],
   })
 );
 app.use(express.json());
@@ -37,7 +37,7 @@ cron.schedule(
   async () => {
     const today = new Date().toISOString().split("T")[0];
     let allProductsToUpdate = await ProductModel.find({ endDate: today });
-    console.log(allProductsToUpdate);
+    // console.log(allProductsToUpdate);
     for (let product of allProductsToUpdate) {
       let maxBid = await BidModel.findOne({ productId: product._id }).sort({
         bidAmount: -1,

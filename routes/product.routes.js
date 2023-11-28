@@ -13,6 +13,7 @@ productRouter.get('/all',  async (req, res) => {
     }
     try {
         const allProduct = await ProductModel.find(filter);
+        
         // console.log(allProduct)
         res.send(allProduct)
     } catch (error) {
